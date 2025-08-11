@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+    <title>ESFE - ASISTENCIA</title>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -15,6 +16,10 @@
 
     <!-- Fonts and icons -->
     <script th:src="@{/assets/js/plugin/webfont/webfont.min.js}"></script>
+
+        <!-- Sweet Alert -->
+    <script th:src="@{/assets/js/plugin/sweetalert/sweetalert.min.js}"></script>
+    
     <script>
       WebFont.load({
         google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -38,6 +43,7 @@
     <link rel="stylesheet" th:href="@{/assets/css/plugins.min.css}" />
     <link rel="stylesheet" th:href="@{/assets/css/kaiadmin.min.css}" />
 
+ 
   </head>
   <body>
     <div class="wrapper">
@@ -48,7 +54,7 @@
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
               <img
-               th:src="@{/assets/img/kaiadmin/logo_light.svg}"
+                th:src="@{/assets/img/kaiadmin/logo_light.svg}"
                 alt="navbar brand"
                 class="navbar-brand"
                 height="20"
@@ -92,12 +98,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section">Components</h4>
-              </li>
+             
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class="fas fa-layer-group"></i>
@@ -121,9 +122,13 @@
                         <span class="sub-item">Docentes</span>
                       </a>
                     </li>
+                  
+                   
                   </ul>
                 </div>
               </li>
+          
+             
             </ul>
           </div>
         </div>
@@ -137,7 +142,7 @@
             <div class="logo-header" data-background-color="dark">
               <a href="index.html" class="logo">
                 <img
-                 th:src="@{/assets/img/kaiadmin/logo_light.svg}"
+                  th:src="@{/assets/img/kaiadmin/logo_light.svg}"
                   alt="navbar brand"
                   class="navbar-brand"
                   height="20"
@@ -261,7 +266,8 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                                th:src="@{/assets/img/mlane.jpg}"                                alt="Img Profile"
+                                th:src="@{/assets/img/mlane.jpg}"
+                                alt="Img Profile"
                               />
                             </div>
                             <div class="notif-content">
@@ -275,7 +281,7 @@
                           <a href="#">
                             <div class="notif-img">
                               <img
-                               th:src="@{/assets/img/talha.jpg}"
+                                th:src="@{/assets/img/talha.jpg}"
                                 alt="Img Profile"
                               />
                             </div>
@@ -461,7 +467,7 @@
                   >
                     <div class="avatar-sm">
                       <img
-                       th:src="@{/assets/img/profile.jpg}"
+                        th:src="@{/assets/img/profile.jpg}"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
@@ -477,7 +483,7 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                             th:src="@{/assets/img/profile.jpg}"
+                              src="assets/img/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
@@ -514,11 +520,11 @@
 
         <div class="container">
           <div class="page-inner">
+            
+            <div layout:fragment="content">
 
-           <div layout:fragment="content">
-            
             </div>
-            
+        
           </div>
         </div>
 
@@ -758,7 +764,7 @@
     <script th:src="@{/assets/js/plugin/chart.js/chart.min.js}"></script>
 
     <!-- jQuery Sparkline -->
-    <script th:src="@{/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js}"></script>
+      <script th:src="@{/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js}"></script>
 
     <!-- Chart Circle -->
     <script th:src="@{/assets/js/plugin/chart-circle/circles.min.js}"></script>
@@ -773,12 +779,12 @@
     <script th:src="@{/assets/js/plugin/jsvectormap/jsvectormap.min.js}"></script>
     <script th:src="@{/assets/js/plugin/jsvectormap/world.js}"></script>
 
-    <!-- Sweet Alert -->
-    <script th:src="@{/assets/js/plugin/sweetalert/sweetalert.min.js}"></script>
+
 
     <!-- Kaiadmin JS -->
     <script th:src="@{/assets/js/kaiadmin.min.js}"></script>
 
+ 
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",
