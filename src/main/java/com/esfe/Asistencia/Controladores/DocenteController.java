@@ -13,6 +13,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.esfe.Asistencia.Modelos.Docente;
 import com.esfe.Asistencia.Servicios.Interfaces.IDocenteService;
 
+import jakarta.validation.Valid;
+
 @Controller
 @RequestMapping("/docentes")
 public class DocenteController {
@@ -79,7 +81,7 @@ public class DocenteController {
 
     // ----------- PROCESAR POST según action --------------
     @PostMapping("/create")
-    public String saveNuevo(@ModelAttribute Docente docente, BindingResult result,
+    public String saveNuevo(@Valid @ModelAttribute Docente docente, BindingResult result,
                             RedirectAttributes redirect, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("action", "create");
