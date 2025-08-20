@@ -1,33 +1,35 @@
 package com.esfe.Asistencia.Modelos;
 
-import java.util.List;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.*;
+
+@Entity
+@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
+    private Integer Id;
 
-@NotBlank(message = "El nombre de usuario es requerido")
-private String Login;
+    @NotBlank(message = "El nombre es requirido")
+    private String Login;
 
-@NotBlank(message = "La clave es requerida")
-private String Clave;
+    @NotBlank(message = "La Contraseña es requirida")
+    private String Clave;
 
-private int Status;
-@ManyToMany(fetch = FetchType.EAGER)
-@JoinTable(name = "usuario_rol",
-        joinColumns = @JoinColumn(name = "usuario_id"),
-        inverseJoinColumns = @JoinColumn(name = "rol_id"))  
-private List<Rol> roles;
+    private int Status;
 
-public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer Pid) {
-        id = Pid;
+    public void setId(Integer id) {
+        Id = id;
     }
 
     public String getLogin() {
@@ -55,10 +57,28 @@ public Integer getId() {
     }
 
     public List<Rol> getRoles() {
-        return roles;
+        return Roles;
     }
 
-    public void setRoles(List<Rol> Roles) {
-        roles = Roles;
+    public void setRoles(List<Rol> roles) {
+        Roles = roles;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "usuario_rol",
+    joinColumns = @JoinColumn(name = "usuario_id"),
+    inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    private List<Rol> Roles;
+
+    public Integer getId(){
+        return Id;
+    }
+
+     // Método para agregar roles
+    public void agregar(Rol tempRol) {
+        if (Roles == null) {
+            Roles = new LinkedList<>();
+        }
+        Roles.add(tempRol);
     }
 }
