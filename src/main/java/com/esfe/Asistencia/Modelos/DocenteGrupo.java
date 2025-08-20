@@ -2,6 +2,7 @@ package com.esfe.Asistencia.Modelos;
 
 import jakarta.persistence.*;
 
+@Entity
 public class DocenteGrupo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
